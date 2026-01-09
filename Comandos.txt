@@ -1,0 +1,7 @@
+php artisan serve
+
+php artisan make --> php artisan make:controller ControladorController
+
+php artisan make:migrate
+php artisan migrate:
+php artisan tinker
