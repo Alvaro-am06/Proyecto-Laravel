@@ -1,2 +1,4 @@
-// Bootstrap JS para Laravel Breeze/Jetstream o Alpine.js
-// Puedes dejarlo vacío si no usas JS adicional
+import axios from 'axios';
+window.axios = axios;
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
