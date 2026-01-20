@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         $user = User::updateOrCreate([
             'email' => 'alvaro@example.com'
         ], [
@@ -42,5 +43,22 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(BuloSeeder::class);
+=======
+        // User::factory(10)->create();
+
+        User::firstOrCreate([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+
+        $this->call([
+            BuloSeeder::class,
+        ]);
+>>>>>>> d588ac2a64f0cd160723851e0b964a89c97f87a4
     }
 }
+
+User::firstOrCreate(
+    ['email' => 'test@example.com'],
+    ['name' => 'Test User']
+);

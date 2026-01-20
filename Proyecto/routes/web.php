@@ -6,6 +6,7 @@ use App\Http\Controllers\BuloController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ControladorController::class, 'index']);
+<<<<<<< HEAD
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,3 +25,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+=======
+Route::post('/bulos', [ControladorController::class, 'guardar']);
+>>>>>>> d588ac2a64f0cd160723851e0b964a89c97f87a4

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('bulos', function (Blueprint $table) {
             $table->id();
-            $table->string('texto_bulo');
-            $table->string('texto_desmentido');
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->text('texto');
+            $table->text('texto_desmentido')->nullable();
             $table->timestamps();
         });
     }

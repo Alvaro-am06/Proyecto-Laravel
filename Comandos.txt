@@ -5,3 +5,10 @@ php artisan make --> php artisan make:controller ControladorController
 php artisan make:migrate
 php artisan migrate:
 php artisan tinker
+
+
+1. php artisan make:component NombreDelComponente -> Genera un componente
+2. php artisan make:seeder nombre -> Genera un Seeder nuevo
+3. php artisan migrate:fresh --seed -> Borra la base de datos (el contenido) e inserta los
+seeders
+4. php artisan db:seed -> Insertar los seeders sin borrar la base de datos
