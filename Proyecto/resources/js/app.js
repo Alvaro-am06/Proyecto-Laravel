@@ -1,1 +1,7 @@
-// Archivo de entrada para Vite en Laravel. Puedes importar aquí tus scripts o dejarlo vacío si solo usas CSS.
+import './bootstrap';
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();

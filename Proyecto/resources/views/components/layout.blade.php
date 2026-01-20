@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memes</title>
+    <title>{{ $title ?? 'Memes' }}</title>
     @vite('resources/css/app.css')
 </head>
 <body>
     <div class="container">
-        @yield('content')
+        {{ $slot }}
     </div>
 </body>
 </html>

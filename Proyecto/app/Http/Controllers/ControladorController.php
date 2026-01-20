@@ -7,7 +7,7 @@ class ControladorController extends Controller
 {
     public function index()
     {
-        $memes = \App\Models\Meme::all();
-        return view('meme', ['memes' => $memes]);
+        $bulos = Bulo::with('user')->get();
+        return view('welcome', ['bulos' => $bulos]);
     }
 }   
