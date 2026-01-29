@@ -15,18 +15,14 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-<<<<<<< HEAD
         "laravel/breeze": "*",
-=======
-        "laravel/boost": "^1.8",
->>>>>>> d588ac2a64f0cd160723851e0b964a89c97f87a4
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "pestphp/pest": "^4.3",
-        "pestphp/pest-plugin-laravel": "^4.0"
+        "pestphp/pest": "*",
+        "pestphp/pest-plugin-laravel": "*"
     },
     "autoload": {
         "psr-4": {

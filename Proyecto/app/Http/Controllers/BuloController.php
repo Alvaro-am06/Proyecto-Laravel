@@ -4,12 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Bulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BuloController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->except('index');
+    }
+
+    public function index()
+    {
+        $bulos = Bulo::with('user')->get();
+
+        // Si estamos en el dashboard, usar vista dashboard, sino welcome
+        if (request()->routeIs('dashboard')) {
+            return view('dashboard', ['bulos' => $bulos]);
+        }
+
+        return view('welcome', ['bulos' => $bulos]);
     }
 
     /**
@@ -26,14 +39,14 @@ class BuloController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'texto_bulo' => 'required|string|max:255',
+            'texto' => 'required|string|max:255',
             'texto_desmentido' => 'required|string|max:255',
         ]);
 
         Bulo::create([
-            'texto_bulo' => $request->texto_bulo,
+            'texto' => $request->texto,
             'texto_desmentido' => $request->texto_desmentido,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
         return redirect('/')->with('success', 'Bulo creado correctamente.');
@@ -46,7 +59,7 @@ class BuloController extends Controller
     {
         $bulo = Bulo::findOrFail($id);
 
-        if ($bulo->user_id !== auth()->id()) {
+        if ($bulo->user_id !== Auth::id()) {
             abort(403);
         }
 
@@ -60,17 +73,17 @@ class BuloController extends Controller
     {
         $bulo = Bulo::findOrFail($id);
 
-        if ($bulo->user_id !== auth()->id()) {
+        if ($bulo->user_id !== Auth::id()) {
             abort(403);
         }
 
         $request->validate([
-            'texto_bulo' => 'required|string|max:255',
+            'texto' => 'required|string|max:255',
             'texto_desmentido' => 'required|string|max:255',
         ]);
 
         $bulo->update([
-            'texto_bulo' => $request->texto_bulo,
+            'texto' => $request->texto,
             'texto_desmentido' => $request->texto_desmentido,
         ]);
 
@@ -82,7 +95,7 @@ class BuloController extends Controller
     public function destroy(string $id)
     {
         $bulo = Bulo::findOrFail($id);
-        if ($bulo->user_id !== auth()->id()) {
+        if ($bulo->user_id !== Auth::id()) {
             abort(403);
         }
         $bulo->delete();

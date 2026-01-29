@@ -13,16 +13,16 @@
                     @method('PUT')
 
                     <div class="mb-6">
-                        <label for="texto_bulo" class="block text-gray-700 font-semibold mb-2">
+                        <label for="texto" class="block text-gray-700 font-semibold mb-2">
                             Texto del Bulo
                         </label>
                         <textarea 
-                            name="texto_bulo" 
-                            id="texto_bulo" 
+                            name="texto" 
+                            id="texto" 
                             rows="4" 
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('texto_bulo') border-red-500 @enderror" 
-                            required>{{ old('texto_bulo', $bulo->texto_bulo) }}</textarea>
-                        @error('texto_bulo')
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent {{ $errors->has('texto') ? 'border-red-500' : '' }}" 
+                            required>{{ old('texto', $bulo->texto) }}</textarea>
+                        @error('texto')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
@@ -35,7 +35,7 @@
                             name="texto_desmentido" 
                             id="texto_desmentido" 
                             rows="4" 
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('texto_desmentido') border-red-500 @enderror" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent {{ $errors->has('texto_desmentido') ? 'border-red-500' : '' }}" 
                             required>{{ old('texto_desmentido', $bulo->texto_desmentido) }}</textarea>
                         @error('texto_desmentido')
                             <span class="text-red-500 text-sm">{{ $message }}</span>

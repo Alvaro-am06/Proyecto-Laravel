@@ -19,4 +19,10 @@ export default {
     },
 
     plugins: [forms, daisyui],
+
+    safelist: [
+        'perspective',
+        'rotate-y-180',
+        'backface-hidden',
+    ],
 };

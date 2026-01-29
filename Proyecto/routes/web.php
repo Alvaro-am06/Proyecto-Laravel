@@ -1,16 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ControladorController;
 use App\Http\Controllers\BuloController;
+use App\Http\Controllers\ControladorController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ControladorController::class, 'index']);
-<<<<<<< HEAD
+Route::get('/', [BuloController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [BuloController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,12 +16,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/bulos/create', [BuloController::class, 'create']);
     Route::post('/bulos', [BuloController::class, 'store']);
-    Route::get('/bulos/{id}/edit', [BuloController::class, 'edit']);
-    Route::put('/bulos/{id}', [BuloController::class, 'update']);
-    Route::delete('/bulos/{id}', [BuloController::class, 'destroy']);
+    Route::get('/bulos/{bulo}/edit', [BuloController::class, 'edit']);
+    Route::put('/bulos/{bulo}', [BuloController::class, 'update']);
+    Route::delete('/bulos/{bulo}', [BuloController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';
-=======
-Route::post('/bulos', [ControladorController::class, 'guardar']);
->>>>>>> d588ac2a64f0cd160723851e0b964a89c97f87a4
